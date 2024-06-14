@@ -1,7 +1,7 @@
 module.exports = {
   create: async (req, res) => {
-    const url = await sails.helpers.upload(req, "profile_photo");
-    await Users.novo({ ...req.body, id: "sas", profile_photo: url });
+    const url = await sails.helpers.upload(req, 'profile_photo');
+    await Users.novo({ ...req.body, id: 'sas', profile_photo: url });
     return res.json({
       success: true,
     });
@@ -10,8 +10,8 @@ module.exports = {
     const user = await Users.findOne({ email: req.body.email });
     if (!user || user.password !== req.body.password) {
       return res.json({
-        code: "INVALID_CREDENTIALS",
-        message: "Invalid email or password",
+        code: 'INVALID_CREDENTIALS',
+        message: 'Invalid email or password',
       });
     }
 

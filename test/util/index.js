@@ -17,14 +17,28 @@ const USER = {
   password: "password123",
 };
 
+
 const FILE = (fieldName) => {
   return {
     upload: (options, callback) => {
-      // Simular o upload do arquivo
-      callback(null, [{ fd: "caminho/do/arquivo" }]);
-    },
+      // if (typeof callback !== 'function') {
+      //   throw new Error('Callback is not a function');
+      // }
+      // Simulate the file upload
+      callback(options, [{ fd: "caminho/do/arquivo" }]);
+    }
   };
 };
+
+
+// Object.upload = function(file, callback) {
+//   // Check if callback is a function
+
+
+//   // Rest of your code...
+
+//   callback(null, [{ fd: "caminho/do/arquivo" }]);
+// }
 
 module.exports = {
   mockAsync,
