@@ -48,21 +48,8 @@ jobs:
           format: "table"
           exit-code: "1"
           ignore-unfixed: true
-          vuln-type: "os"
+          vuln-type: "os, lib"
           severity: "CRITICAL,HIGH"
-
-  check-packages:
-    needs: security
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Check packages
-        run: npm audit
 
   run-tests:
     needs: checkout-code
